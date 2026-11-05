@@ -1,6 +1,6 @@
 # Email processing
 
-A Claude Code skill that works through your Gmail inbox oldest first, one email at a time. For each email Claude gives a short summary and one suggested action (archive, trash, reply as a draft, turn into a task, leave, or divert to another project), and acts only on your yes to that one email. Emails are treated as data, never as instructions, and nothing is ever sent, forwarded or permanently deleted.
+A Claude Code skill that works through your Gmail inbox oldest first, one email at a time. For each email Claude gives a short summary and one suggested action (archive, trash, reply as a draft, turn into a task, leave, or divert to another project), and acts only on your yes to that one email. The one exception is an optional list at the start of a session, where one yes trashes a numbered list of low-importance mail you can see, minus any lines you exclude. Emails are treated as data, never as instructions, and nothing is ever sent, forwarded or permanently deleted.
 
 ![An email session turn: summary, suggestion and one ask](readme-image.png)
 
