@@ -90,15 +90,22 @@ When the user wants to unsubscribe from a sender, take the link from the email's
 
 ## Tasks
 
-An email that needs a single task, or a task with subtasks, becomes a line appended to the end of `TASKS.md` in the `task management` project folder. Find that folder in this project's address book, `.throughliner/address-book.md`. The line has this shape:
+An email that needs a single task, or a task with subtasks, becomes a `[user]` capture in the queue of the project the task belongs to. Where it belongs to no project, it goes to the queue of the project whose folder holds the user's task list, the note named on the `Task list:` line of this project's `CLAUDE.md`. Never write to the task-list note itself: it only gathers task lines from every project's queue through Obsidian Tasks queries.
+
+The capture carries a checkbox line of this shape:
 
 ```
-- [ ] <task> (<project>) 📅 <YYYY-MM-DD, only where the task has a date>
+- [ ] <task> (<project>) 📅 <YYYY-MM-DD, only where the task has a date> #user
 ```
 
-Each line carries the details needed to act on it without going back to the email: the phone number to call, the email address to write to, the address of the place where the work happens, and any reference number. Take them from the email, or find them where findable. Never include the user's own home address, since the user already knows it and `TASKS.md` is shared.
+Each line carries the details needed to act on it without going back to the email: the phone number to call, the email address to write to, the address of the place where the work happens, and any reference number. Take them from the email, or find them where findable. Never include the user's own home address, since the user already knows it and task lines are shown across projects.
 
-Put subtasks beneath it, indented, each as its own `- [ ]` checkbox. Only ever append to the end of the file. Never change, remove or reorder an existing line. Show the user the line before writing it.
+Put subtasks beneath it, indented, each as its own `- [ ]` checkbox.
+
+1. Find the project's name in `.throughliner/address-book.md`. If it is not listed, ask the user for its folder once and add it to the address book. Where the task belongs to this project, file it here with the state server's `file_capture` tool instead.
+2. Show the user the exact capture, checkbox line included, and wait for their yes.
+3. Send it with the state server's `send_capture` tool, with the intent "for completion".
+4. Archive the email only if the user says to.
 
 ## Diverting to another project
 
